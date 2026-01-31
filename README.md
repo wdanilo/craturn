@@ -8,7 +8,7 @@
 **A Rust interpretation of the “Saturn Devouring His Son” painting.**
 
 `craturn` is a joke global allocator that slowly, subtly, and nondeterministically **eats
-allocated memory**, resulting in corrupted program state over time — while remaining fully
+allocated memory**, resulting in corrupted program state over time, while remaining fully
 valid Rust code.
 
 It is inspired by Francisco Goya’s *Saturn Devouring His Son*.  
@@ -18,10 +18,10 @@ The allocator behaves normally at first.
 Then it starts to *eat*.
 <br/>
 Sometimes nothing happens.<br/>
-Sometimes bits disappear.<br/>  
-Sometimes values decay.<br/>  
-Sometimes the program hangs.<br/>  
-Sometimes everything is fine — until it isn’t.<br/>
+Sometimes bits disappear.<br/>
+Sometimes values decay.<br/>
+Sometimes the program hangs.<br/>
+Sometimes everything is fine ... until it isn’t.<br/>
 
 <br/>
 
@@ -87,13 +87,13 @@ Insatiable,  // Loud, fast, obvious consumption
 ```
 
 Higher hunger:
-- eats memory more frequently
-- removes more bits per bite
-- converges faster to visible failure
+- Eats memory more frequently.
+- Removes more bits per bite.
+- Converges faster to visible failure.
 
 Lower hunger:
-- may take seconds, minutes, or never
-- is ideal for subtle, deniable breakage
+- May take seconds, minutes, or never.
+- Is ideal for subtle, deniable breakage.
 
 <br/>
 
@@ -188,10 +188,10 @@ println!("Craturn sanity test");
 
 ### Possible outcomes
 
-- Values slowly decay to zero
-- Collections lose elements
-- Program hangs due to eaten state
-- Everything appears fine — for now
+- Values slowly decay to zero.
+- Collections lose elements.
+- Program hangs due to eaten state.
+- Everything appears fine, for now.
 
 All outcomes are correct.
 
@@ -206,15 +206,15 @@ The allocator is installed via a macro to keep activation **non-obvious**:
 ```
 #[macro_export]
 macro_rules! awaken {
-() => {
-$crate::awaken!(Hungry);
-};
-($hunger:ident) => {
-#[global_allocator]
-static A: craturn::Allocator = craturn::Allocator {
-hunger: craturn::Hunger::$hunger,
-};
-};
+    () => {
+        $crate::awaken!(Hungry);
+    };
+    ($hunger:ident) => {
+        #[global_allocator]
+        static A: craturn::Allocator = craturn::Allocator {
+            hunger: craturn::Hunger::$hunger,
+        };
+    };
 }
 ```
 
@@ -228,32 +228,19 @@ There is no “stop eating” macro.
 
 # 🧠 Design Notes
 
-- No locks in allocation paths
-- No heap allocation inside allocator hooks
-- One background eater thread
-- Dense tracking of live allocations
-- Long-lived memory is eaten preferentially
-- Bites are small and localized by default
+- No locks in allocation paths.
+- No heap allocation inside allocator hooks.
+- One background eater thread.
+- Dense tracking of live allocations.
+- Long-lived memory is eaten preferentially.
+- Bites are small and localized by default.
 
 This keeps the behavior:
-- delayed
-- nondeterministic
-- extremely difficult to trace
+- delayed,
+- nondeterministic,
+- extremely difficult to trace.
 
 Just like real memory bugs.
-
-<br/>
-
----
-
-# 🪦 When *Not* to Use `craturn`
-
-- Production systems
-- Financial software
-- Cryptography
-- Medical devices
-- Spacecraft
-- Anything you care about
 
 <br/>
 
@@ -262,10 +249,8 @@ Just like real memory bugs.
 # 🪐 Philosophy
 
 > Saturn does not crash.
->
 > Saturn does not panic.
->
-> Saturn simply eats.
+> Saturn simply eats his son.
 
 `craturn` does the same.
 

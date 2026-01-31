@@ -108,8 +108,8 @@ impl Allocator {
     fn bite_offset(&self) -> Duration {
         let ms = match self.hunger {
             Hunger::Full => u64::MAX,
-            Hunger::Hungry => 200,
-            Hunger::Starving => 100,
+            Hunger::Hungry => 1000,
+            Hunger::Starving => 200,
             Hunger::Devouring => 50,
             Hunger::Insatiable => 10,
         };

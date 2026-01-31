@@ -1,0 +1,18 @@
+[package]
+name = "craturn"
+version = "1.0.0"
+edition = "2021"
+
+authors = ["Wojciech Danilo <wojciech.danilo@gmail.com.com>"]
+description = "A Rust interpretation of the 'Saturn Devouring His Son' painting."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/wdanilo/craturn"
+readme = "README.md"
+keywords = ["allocator", "unsafe", "joke", "saturn", "devoring"]
+categories = ["memory-management", "development-tools::debugging"]
+
+[dependencies]
+# no dependencies on purpose — allocator-safe
+
+[features]
+default = []

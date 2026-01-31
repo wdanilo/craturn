@@ -4,7 +4,7 @@
 <br/>
 <br/>
 
-# 🪐 craturn
+## 🪐 craturn
 
 **A Rust interpretation of the “Saturn Devouring His Son” painting.**
 
@@ -26,9 +26,9 @@ Sometimes everything is fine ... until it isn’t.<br/>
 
 <br/>
 
----
+<br/>
 
-# ⚠️ Disclaimer
+## ⚠️ Disclaimer
 
 This crate is **intentionally unsafe**, **intentionally incorrect**, and **intentionally evil**.
 
@@ -47,9 +47,9 @@ You have been warned.
 
 <br/>
 
----
+<br/>
 
-# 🧭 What `craturn` Does
+## 🧭 What `craturn` Does
 
 Once awakened, `craturn` installs a custom **global allocator** that:
 
@@ -73,7 +73,7 @@ In other words:
 
 <br/>
 
-# 🍖 Hunger Levels
+## 🍖 Hunger Levels
 
 Hunger controls **how often** and **how much** memory is eaten.
 
@@ -100,7 +100,7 @@ Lower hunger:
 
 <br/>
 
-# 🛠️ Usage
+## 🛠️ Usage
 
 Add `craturn` as a dependency, then **awaken it**.
 
@@ -122,7 +122,7 @@ Once awakened, Saturn starts eating.
 
 <br/>
 
-# 🧪 Example
+## 🧪 Example
 
 ```rust
 use std::thread;
@@ -187,7 +187,7 @@ println!("Craturn sanity test");
 }
 ```
 
-### Possible outcomes
+#### Possible outcomes
 
 - Values slowly decay to zero.
 - Collections lose elements.
@@ -200,12 +200,12 @@ All outcomes are correct.
 
 <br/>
 
-# 🧙 Macro Details
+## 🧙 Macro Details
 
 The allocator is installed via a macro to keep activation **non-obvious**:
 
 ```rust
-#[macro_export]
+##[macro_export]
 macro_rules! awaken {
     () => {
         $crate::awaken!(Hungry);
@@ -227,7 +227,7 @@ There is no “stop eating” macro.
 
 <br/>
 
-# 🧠 Design Notes
+## 🧠 Design Notes
 
 - No locks in allocation paths.
 - No heap allocation inside allocator hooks.
@@ -247,7 +247,7 @@ Just like real memory bugs.
 
 <br/>
 
-# 🪐 Philosophy
+## 🪐 Philosophy
 
 > Saturn does not crash.
 > Saturn does not panic.
@@ -259,7 +259,7 @@ Just like real memory bugs.
 
 <br/>
 
-# 📜 License
+## 📜 License
 
 MIT OR Apache-2.0  
 Choose whichever lets you sleep at night.

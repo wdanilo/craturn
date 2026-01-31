@@ -2,6 +2,7 @@
 
 
 <br/>
+<br/>
 
 # 🪐 craturn
 
@@ -70,7 +71,7 @@ In other words:
 
 <br/>
 
----
+<br/>
 
 # 🍖 Hunger Levels
 
@@ -97,7 +98,7 @@ Lower hunger:
 
 <br/>
 
----
+<br/>
 
 # 🛠️ Usage
 
@@ -119,7 +120,7 @@ Once awakened, Saturn starts eating.
 
 <br/>
 
----
+<br/>
 
 # 🧪 Example
 
@@ -197,7 +198,7 @@ All outcomes are correct.
 
 <br/>
 
----
+<br/>
 
 # 🧙 Macro Details
 
@@ -224,7 +225,7 @@ There is no “stop eating” macro.
 
 <br/>
 
----
+<br/>
 
 # 🧠 Design Notes
 
@@ -244,7 +245,7 @@ Just like real memory bugs.
 
 <br/>
 
----
+<br/>
 
 # 🪐 Philosophy
 
@@ -256,7 +257,7 @@ Just like real memory bugs.
 
 <br/>
 
----
+<br/>
 
 # 📜 License
 

@@ -2,7 +2,7 @@ use std::thread;
 use std::time::Duration;
 use std::time::Instant;
 
-craturn::awaken!(Hungry);
+craturn::awaken!(Starving);
 
 fn main() {
     println!("Craturn sanity test");

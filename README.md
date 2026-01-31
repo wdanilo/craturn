@@ -1,18 +1,17 @@
 <img width="698" alt="Image" src="https://github.com/user-attachments/assets/22276cf0-9eb2-4df9-91b8-106c176d0c7e" />
 
-
 <br/>
 <br/>
 
 ## 🪐 craturn
 
-**A Rust interpretation of the “Saturn Devouring His Son” painting.**
+**A Rust interpretation of the [“Saturn Devouring His Son”](https://en.wikipedia.org/wiki/Saturn_Devouring_His_Son) painting.**
 
 `craturn` is a joke global allocator that slowly, subtly, and nondeterministically **eats
 allocated memory**, resulting in corrupted program state over time, while remaining fully
 valid Rust code.
 
-It is inspired by Francisco Goya’s *Saturn Devouring His Son*.  
+It is inspired by [Francisco Goya’s *Saturn Devouring His Son*](https://en.wikipedia.org/wiki/Saturn_Devouring_His_Son).  
 Except Saturn here is **your program**, and the son is **its own heap**.
 
 The allocator behaves normally at first.  
@@ -79,11 +78,11 @@ Hunger controls **how often** and **how much** memory is eaten.
 
 ```rust
 pub enum Hunger {
-    Full,        // Eats nothing
-    Hungry,      // Rare, tiny bites
-    Starving,    // More frequent nibbling
-    Devouring,   // Large chunks disappear
-    Insatiable,  // Loud, fast, obvious consumption
+    Full,        // Eats nothing.
+    Hungry,      // Rare, tiny bites. First bite after a second. Default value.
+    Starving,    // More frequent nibbling.
+    Devouring,   // Large chunks disappear.
+    Insatiable,  // Loud, fast, obvious consumption.
 }
 ```
 
@@ -105,9 +104,9 @@ Lower hunger:
 Add `craturn` as a dependency, then **awaken it**.
 
 ```rust
-craturn::awaken!();          // defaults to Hungry
+craturn::awaken!(); // Defaults to `Hungry`.
 // or
-craturn::awaken!(Starving);  // explicit hunger
+craturn::awaken!(Starving);  // Explicit hunger.
 ```
 
 That’s it.
@@ -128,7 +127,7 @@ Once awakened, Craturn starts eating.
 use std::thread;
 use std::time::{Duration, Instant};
 
-craturn::awaken!(Hungry);
+craturn::awaken!(Starving);
 
 fn main() {
 println!("Craturn sanity test");
@@ -189,7 +188,7 @@ println!("Craturn sanity test");
 
 #### Possible outcomes
 
-- Values slowly decay to zero.
+- Values slowly change in random places (some digits, chars, len, etc.).
 - Collections lose elements.
 - Program hangs due to eaten state.
 - Everything appears fine, for now.

@@ -35,6 +35,7 @@ struct Slot {
 }
 
 static REGISTRY: [Slot; MAX_TRACKED] = {
+    #[allow(clippy::declare_interior_mutable_const)]
     const EMPTY_SLOT: Slot = Slot {
         addr: AtomicUsize::new(0),
         size: AtomicUsize::new(0),
@@ -105,6 +106,18 @@ pub struct Allocator {
 
 impl Allocator {
     #[inline(always)]
+    fn first_bite_offset(&self) -> Duration {
+        let ms = match self.hunger {
+            Hunger::Full => u64::MAX,
+            Hunger::Hungry => 1000,
+            Hunger::Starving => 0,
+            Hunger::Devouring => 0,
+            Hunger::Insatiable => 0,
+        };
+        Duration::from_millis(ms)
+    }
+
+    #[inline(always)]
     fn bite_offset(&self) -> Duration {
         let ms = match self.hunger {
             Hunger::Full => u64::MAX,
@@ -147,6 +160,7 @@ impl Allocator {
     }
 
     fn eater_loop(self) {
+        thread::sleep(self.first_bite_offset());
         loop {
             thread::sleep(self.bite_offset());
 

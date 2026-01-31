@@ -76,13 +76,13 @@ In other words:
 
 Hunger controls **how often** and **how much** memory is eaten.
 
-```
+```rust
 pub enum Hunger {
-Full,        // Eats nothing
-Hungry,      // Rare, tiny bites
-Starving,    // More frequent nibbling
-Devouring,   // Large chunks disappear
-Insatiable,  // Loud, fast, obvious consumption
+    Full,        // Eats nothing
+    Hungry,      // Rare, tiny bites
+    Starving,    // More frequent nibbling
+    Devouring,   // Large chunks disappear
+    Insatiable,  // Loud, fast, obvious consumption
 }
 ```
 
@@ -103,7 +103,7 @@ Lower hunger:
 
 Add `craturn` as a dependency, then **awaken it**.
 
-```
+```rust
 craturn::awaken!();          // defaults to Hungry
 // or
 craturn::awaken!(Starving);  // explicit hunger
@@ -123,7 +123,7 @@ Once awakened, Saturn starts eating.
 
 # 🧪 Example
 
-```
+```rust
 use std::thread;
 use std::time::{Duration, Instant};
 
@@ -203,7 +203,7 @@ All outcomes are correct.
 
 The allocator is installed via a macro to keep activation **non-obvious**:
 
-```
+```rust
 #[macro_export]
 macro_rules! awaken {
     () => {
